@@ -20,9 +20,12 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+gem 'pg'
+end
+
 gem 'devise', '~> 3.5.1'
 gem 'paperclip', '~> 4.3.0'
 gem 'bootstrap-sass', '~> 3.3.5.1'
-gem 'pg'
 gem 'rails_12factor'
 ruby '2.2.2'
