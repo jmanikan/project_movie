@@ -1,4 +1,3 @@
-<!-- <p id="notice"><%= notice %></p> !-->
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
@@ -35,7 +34,6 @@
       <div class="col-md-7 col-md-offset-1">
         <h1 class="review_title"><%= @movie.title %></h1>
         <p><%= @movie.description %></p>
-
         <% if @reviews.blank? %>
           <h3>No reviews submitted. Be the first!</h3>
           <%= link_to "Write Review", new_movie_review_path(@movie), class: "btn btn-danger" %>
@@ -50,6 +48,19 @@
     </div>
   </div>
 </div>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+    }
+  });
+</script>
 
 <!--<%= image_tag @movie.image.url(:medium) %>
 <p>
@@ -76,16 +87,3 @@
   <strong>Rating:</strong>
   <%= @movie.rating %>
 </p>!-->
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
-
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-          return $(this).attr('data-score');
-    }
-  });
-</script>

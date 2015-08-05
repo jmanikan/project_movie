@@ -51,7 +51,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  def search
+    @results = search_for_movie(params[:term])
+  end
+
   private
+
+    def search_for_movie(term)
+      Movie.where("title LIKE ?", "%#{term}%")
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.find(params[:id])
