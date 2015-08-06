@@ -58,7 +58,7 @@ class MoviesController < ApplicationController
   private
 
     def search_for_movie(term)
-      Movie.where("title LIKE ?", "%#{term}%")
+      Movie.where("title ILIKE ?", "%#{term}%")
     end
 
     # Use callbacks to share common setup or constraints between actions.
