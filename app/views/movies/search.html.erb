@@ -1,10 +1,13 @@
 <% if @results.count > 0 %>
   <ul>
-  <% @results.each do |result| %>
-    <%= content_tag_for :li, result do %>
-      <%= link_to result.title, result %>
-    <% end %>
-  <% end %>
+    <div class="search-results">
+      <p> Search Results: </p>
+        <% @results.each do |result| %>
+          <%= content_tag_for :li, result do %>
+          <%= link_to result.title, result %>
+        <% end %>
+      <% end %>
+    </div>
   </ul>
 <% else %>
   <p>We could not find any matching results.</p>
